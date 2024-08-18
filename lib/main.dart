@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'core/helper_functions/on_generate_routes.dart';
 import 'features/splash/presentation/views/splash_view.dart';
 
 void main() {
@@ -11,7 +12,11 @@ class FruitHub extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const SplashView();
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: onGenerateRoute,
+      initialRoute: SplashView.routeName,
+    );
   }
 }
 
