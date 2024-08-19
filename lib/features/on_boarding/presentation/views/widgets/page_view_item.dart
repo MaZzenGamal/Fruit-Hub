@@ -3,6 +3,9 @@ import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/utils/text_styles.dart';
 import 'package:fruit_hub/features/auth/presentation/views/login_view.dart';
 
+import '../../../../../constants.dart';
+import '../../../../../core/services/shared_preference_singleton.dart';
+
 class PageViewItem extends StatelessWidget {
   const PageViewItem({super.key,
     required this.image,
@@ -34,6 +37,7 @@ class PageViewItem extends StatelessWidget {
                 padding: EdgeInsets.all(16.0),
                 child: GestureDetector(
                   onTap: () {
+                    Prefs.setBool(kIsOnboardingViewSeen, true);
                     Navigator.of(context)
                         .pushReplacementNamed(LoginView.routeName);
                   },
