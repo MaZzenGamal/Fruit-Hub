@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/features/on_boarding/presentation/views/widgets/on_boarding_view_body.dart';
 
 class OnBoardingView extends StatelessWidget {
   const OnBoardingView({super.key});
@@ -6,6 +7,8 @@ class OnBoardingView extends StatelessWidget {
   static const routeName = 'onboarding';
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold(
+      body: SafeArea(child: OnboardingViewBody()),
+    );
   }
 }
