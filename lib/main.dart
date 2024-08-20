@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:fruit_hub/core/utils/colors.dart';
 
 import 'core/helper_functions/on_generate_routes.dart';
 import 'core/services/shared_preference_singleton.dart';
 import 'features/splash/presentation/views/splash_view.dart';
 import 'generated/l10n.dart';
 
-void main() {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  Prefs.init();
-
+  await Prefs.init();
   runApp(const FruitHub());
 }
 
@@ -29,7 +29,11 @@ class FruitHub extends StatelessWidget {
       locale: const Locale('ar'),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
         fontFamily: 'Cairo',
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.primaryColor
+        )
       ),
       onGenerateRoute: onGenerateRoute,
       initialRoute: SplashView.routeName,
