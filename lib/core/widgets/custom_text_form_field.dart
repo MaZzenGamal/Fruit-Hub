@@ -11,6 +11,7 @@ class CustomTextFormField extends StatelessWidget {
     this.maxLines = 1,
     this.initialValue,
     this.suffixIcon,
+    this.onSaved,
   });
 
   final Function(String)? onChanged;
@@ -20,14 +21,15 @@ class CustomTextFormField extends StatelessWidget {
   final TextEditingController? controller;
   final TextInputType? textInputType;
   final int? maxLines;
-  final IconData? suffixIcon;
+  final Widget? suffixIcon;
+  final void Function(String?)? onSaved;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       validator: (value) {
         if (value?.isEmpty ?? true) {
-          return 'Field is required';
+          return 'هذا الحقل مطلوب';
         } else {
           return null;
         }
@@ -39,11 +41,9 @@ class CustomTextFormField extends StatelessWidget {
       onTapOutside: (event) => FocusScope.of(context).unfocus(),
       obscureText: obscureText!,
       onChanged: onChanged,
+      onSaved: onSaved,
       decoration: InputDecoration(
-        suffixIcon: Icon(
-          suffixIcon,
-          color: const Color(0xffC9CECF),
-        ),
+        suffixIcon: suffixIcon,
         hintText: hintText,
         hintStyle: const TextStyle(
           color: Color(0xFF949D9E),

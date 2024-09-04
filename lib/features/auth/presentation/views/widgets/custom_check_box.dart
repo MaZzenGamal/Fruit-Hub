@@ -5,16 +5,16 @@ import '../../../../../core/utils/colors.dart';
 import '../../../../../generated/assets.dart';
 
 class CustomCheckBox extends StatelessWidget {
-  const CustomCheckBox({super.key, required this.isChecked, required this.onChanged});
+  const CustomCheckBox({super.key, required this.isChecked, required this.onChecked});
 
   final bool isChecked;
-  final void Function(bool) onChanged;
+  final void Function(bool) onChecked;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        onChanged(!isChecked);
+        onChecked(!isChecked);
       },
       child: AnimatedContainer(
           duration: const Duration(milliseconds: 100),

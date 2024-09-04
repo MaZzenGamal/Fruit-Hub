@@ -15,7 +15,7 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return  SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: kHorizontalPadding),
         child: Column(
@@ -33,7 +33,6 @@ class LoginViewBody extends StatelessWidget {
             const CustomTextFormField(
               hintText: 'كلمة المرور',
               obscureText: true,
-              suffixIcon: Icons.visibility,
               textInputType: TextInputType.visiblePassword,
             ),
             const SizedBox(

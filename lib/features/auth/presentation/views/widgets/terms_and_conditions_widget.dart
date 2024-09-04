@@ -6,9 +6,10 @@ import 'custom_check_box.dart';
 
 class TermsAndConditionsWidget extends StatefulWidget {
   const TermsAndConditionsWidget({
-    super.key,
+    super.key, required this.onChanged,
   });
 
+  final ValueChanged<bool> onChanged;
   @override
   State<TermsAndConditionsWidget> createState() =>
       _TermsAndConditionsWidgetState();
@@ -23,7 +24,10 @@ class _TermsAndConditionsWidgetState extends State<TermsAndConditionsWidget> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         CustomCheckBox(
-          onChanged: (value) => setState(() => isTermsAccepted = value),
+          onChecked: (value) => setState(() {
+            isTermsAccepted = value;
+            widget.onChanged(value);
+          }),
           isChecked: isTermsAccepted,
         ),
         const SizedBox(
@@ -49,22 +53,5 @@ class _TermsAndConditionsWidgetState extends State<TermsAndConditionsWidget> {
         ),
       ],
     );
-    /*return Transform.translate(
-      offset: const Offset(11, 0),
-      child: CheckboxListTile(
-          controlAffinity: ListTileControlAffinity.leading,
-          visualDensity:
-              const VisualDensity(horizontal: VisualDensity.minimumDensity),
-          checkboxShape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8),
-            side:  BorderSide(
-              width: 1.50,
-                color: Color(0xFFDCDEDE),),
-          ),
-          title:
-          contentPadding: EdgeInsets.zero,
-          value: false,
-          onChanged: (k) {}),
-    );*/
   }
 }
