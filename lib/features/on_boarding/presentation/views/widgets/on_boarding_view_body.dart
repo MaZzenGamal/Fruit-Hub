@@ -4,7 +4,7 @@ import 'package:fruit_hub/constants.dart';
 import 'package:fruit_hub/core/services/shared_preference_singleton.dart';
 import 'package:fruit_hub/core/utils/colors.dart';
 import 'package:fruit_hub/core/widgets/custom_button.dart';
-import 'package:fruit_hub/features/auth/presentation/views/login_view.dart';
+import 'package:fruit_hub/features/auth/presentation/views/signin_view.dart';
 import 'package:fruit_hub/features/on_boarding/presentation/views/widgets/on_boarding_page_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
@@ -70,7 +70,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                 onPressed: () {
                   Prefs.setBool(kIsOnboardingViewSeen, true);
                   Navigator.of(context)
-                      .pushReplacementNamed(LoginView.routeName);
+                      .pushReplacementNamed(SigninView.routeName);
                 },
                 text: "ابدأ الان"),
           ),

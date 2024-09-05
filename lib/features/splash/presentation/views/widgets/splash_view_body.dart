@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fruit_hub/features/auth/presentation/views/login_view.dart';
+import 'package:fruit_hub/features/auth/presentation/views/signin_view.dart';
 import 'package:fruit_hub/features/on_boarding/presentation/views/on_boarding_view.dart';
 import 'package:fruit_hub/generated/assets.dart';
 
@@ -52,7 +52,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     bool isOnBoardingViewSeen = Prefs.getBool(kIsOnboardingViewSeen);
       Future.delayed(const Duration(seconds: 3), () {
         if (isOnBoardingViewSeen) {
-          Navigator.pushReplacementNamed(context, LoginView.routeName);
+          Navigator.pushReplacementNamed(context, SigninView.routeName);
         } else {
           Navigator.pushReplacementNamed(context, OnBoardingView.routeName);
         }

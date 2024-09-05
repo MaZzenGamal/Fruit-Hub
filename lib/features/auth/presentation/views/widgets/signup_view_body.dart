@@ -74,14 +74,9 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               ),
               CustomButton(
                 onPressed: () {
-                  //print(name);
-                  // print(password);
                   if (formKey.currentState!.validate()) {
                     formKey.currentState!.save();
                     if (isTermsAccepted) {
-                      print(name);
-                      print(email);
-                      print(password);
                       context
                           .read<SignupCubit>()
                           .createUserWithEmailAndPassword(

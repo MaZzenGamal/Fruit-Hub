@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:fruit_hub/core/utils/text_styles.dart';
-import 'package:fruit_hub/features/auth/presentation/views/login_view.dart';
+import 'package:fruit_hub/features/auth/presentation/views/signin_view.dart';
 
 import '../../../../../constants.dart';
 import '../../../../../core/services/shared_preference_singleton.dart';
@@ -39,7 +39,7 @@ class PageViewItem extends StatelessWidget {
                   onTap: () {
                     Prefs.setBool(kIsOnboardingViewSeen, true);
                     Navigator.of(context)
-                        .pushReplacementNamed(LoginView.routeName);
+                        .pushReplacementNamed(SigninView.routeName);
                   },
                   child: const Text(
                     'تخط',

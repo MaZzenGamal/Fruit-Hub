@@ -35,4 +35,59 @@ class AuthRepoImp extends AuthRepo {
       );
     }
   }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      var user = await firebaseAuthServices.signInWithEmailAndPassword(
+          email: email, password: password);
+      return Right(UserModel.fromFirebaseUser(user));
+    } on CustomException catch (e) {
+      return Left(ServerFailure(e.message));
+    } catch (e) {
+      log('Exception in AuthRepoImp.signInWithEmailAndPassword: ${e.toString()}');
+      return Left(
+        ServerFailure(
+          'لقد حدث خطأ غير متوقع، حاول مرة اخرى',
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithGoogle() async {
+    try {
+      var user = await firebaseAuthServices.signInWithGoogle();
+      return Right(UserModel.fromFirebaseUser(user));
+    } on CustomException catch (e) {
+      return Left(ServerFailure(e.message));
+    } catch (e) {
+      log('Exception in AuthRepoImp.signInWithGoogle: ${e.toString()}');
+      return Left(
+        ServerFailure(
+          'لقد حدث خطأ غير متوقع، حاول مرة اخرى',
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithFacebook() async {
+    try {
+      var user = await firebaseAuthServices.signInWithFacebook();
+      return Right(UserModel.fromFirebaseUser(user));
+    } on CustomException catch (e) {
+      return Left(ServerFailure(e.message));
+    } catch (e) {
+      log('Exception in AuthRepoImp.signInWithFacebook: ${e.toString()}');
+      return Left(
+        ServerFailure(
+          'لقد حدث خطأ غير متوقع، حاول مرة اخرى',
+        ),
+      );
+    }
+  }
 }
